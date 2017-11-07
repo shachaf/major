@@ -137,7 +137,11 @@ class Major extends React.Component {
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = () => {
       if (xhr.readyState == XMLHttpRequest.DONE) {
-        this.gotData(xhr.responseText);
+        if (xhr.status == 200) {
+          this.gotData(xhr.responseText);
+        } else {
+          this.setState({"status": "error"});
+        }
       }
     };
     xhr.open("GET", "majordict.json");
@@ -195,10 +199,12 @@ class Major extends React.Component {
     if (this.state.status == "unloaded") {
       return e("span", null, "Loading...");
     }
-    //if (this.state.status == "error") { ... }
-    const options = prefixMatches(this.state.majorDict,
-      this.state.wordState.digits.slice(this.state.wordState.pathLen));
+    if (this.state.status == "error") {
+      return e("span", null, "Error loading dictionary");
+    }
     if (this.state.status == "loaded") {
+      const options = prefixMatches(this.state.majorDict,
+        this.state.wordState.digits.slice(this.state.wordState.pathLen));
       return e("div", null,
         e(DigitsInput, {"digitsChanged": (digits) => this.digitsChanged(digits)}, null),
         e(Status, {"wordState": this.state.wordState, popWord: () => this.popWord()}, null),
@@ -207,10 +213,6 @@ class Major extends React.Component {
     }
   }
 }
-
-//let majorDict = new Map(JSON.parse(fs.readFileSync("majordict.json")));
-
-//console.log(prefixMatches("123"));
 
 function go() {
   ReactDOM.render(e(Major, {}, null), document.getElementById("root"));

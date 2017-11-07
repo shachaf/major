@@ -6,16 +6,16 @@ const fs = require("fs");
 
 const phonemeMap = new Map([
   ["AA", null], ["AA", null], ["AE", null], ["AH", null], ["AO", null],
-  ["AW", null], ["AY", null], ["EH", null], ["ER", null], ["EY", null],
-  ["IH", null], ["IY", null], ["OW", null], ["OY", null], ["UH", null],
-  ["UW", null], ["W", null], ["Y", null],
+  ["AW", null], ["AY", null], ["EH", null], ["EY", null], ["IH", null],
+  ["IY", null], ["OW", null], ["OY", null], ["UH", null], ["UW", null],
+  ["W", null], ["Y", null],
   ["HH", null],
 
   ["S", "0"], ["Z", "0"],
   ["D", "1"], ["DH", "1"], ["T", "1"], ["TH", "1"],
   ["N", "2"], ["NG", "2"], // ?
   ["M", "3"],
-  ["R", "4"],
+  ["R", "4"], ["ER", 4],
   ["L", "5"],
   ["CH", "6"], ["JH", "6"], ["SH", "6"], ["ZH", "6"],
   ["G", "7"], ["K", "7"],
