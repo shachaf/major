@@ -1,0 +1,9 @@
+http://svn.code.sf.net/p/cmusphinx/code/trunk/cmudict/cmudict-0.7b
+http://svn.code.sf.net/p/cmusphinx/code/trunk/cmudict/cmudict-0.7b.phones
+http://svn.code.sf.net/p/cmusphinx/code/trunk/cmudict/cmudict-0.7b.symbols
+
+https://unpkg.com/react@16/umd/react.development.js
+https://unpkg.com/react-dom@16/umd/react-dom.development.js
+
+https://unpkg.com/react@16/umd/react.production.min.js
+https://unpkg.com/react-dom@16/umd/react-dom.production.min.js

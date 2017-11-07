@@ -1,0 +1,24 @@
+<!doctype html>
+<title>Major System</title>
+<!--
+<script src="react.development.js"></script>
+<script src="react-dom.development.js"></script>
+-->
+<script src="react.production.min.js"></script>
+<script src="react-dom.production.min.js"></script>
+<script src="index.js"></script>
+<style>
+#root { text-align: center; }
+div.options > ul > li { list-style-type: none; }
+div.options > ul > li > ul > li {
+  display: inline-block;
+  text-align: center;
+}
+div.options a { text-decoration: none; }
+div.status { font-size: 150%; }
+span.remainingDigits { color: red; }
+.popButton { text-decoration: none; }
+</style>
+<h1>Major system</h1>
+<div id="root"></div>
+<script>go();</script>
