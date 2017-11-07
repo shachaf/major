@@ -60,11 +60,27 @@ function serializeMajorDict(majorDict) {
   return JSON.stringify([...majorDict]);
 }
 
+function printMajorDict(majorDict) {
+  let a = [];
+  let sortedWords = [...majorDict.entries()].sort((x,y) => {
+    //const a = x[0].length - y[0].length;
+    //if (a !== 0) return a;
+    const b = x[0].localeCompare(y[0]);
+    return b;
+  });
+  for (const [digits, words] of sortedWords) {
+    let s = digits + ": " + words.join(" ") + "\n";
+    a.push(s);
+  }
+  return a.join("");
+}
+
 function main() {
   const cmudictRaw = fs.readFileSync("cmudict-0.7b", "latin1");
   const cmudict = parseCmudict(cmudictRaw);
   const majorDict = makeMajorDict(cmudict);
   fs.writeFileSync("majordict.json", serializeMajorDict(majorDict), "utf8");
+  fs.writeFileSync("majordict.txt", printMajorDict(majorDict), "utf8");
 }
 
 main();
