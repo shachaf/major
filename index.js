@@ -73,7 +73,7 @@ class Status extends React.Component {
         e("a", {className: "popButton",
             onClick: this.props.popWord,
             href: "javascript:void(0);"},
-          "\u21b5")
+          "\u2b8c")
       : null,
     );
   }
